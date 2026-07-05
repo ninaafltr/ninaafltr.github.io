@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nina — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1F23;
+    --paper:#F7F6F3;
+    --paper-raised:#FFFFFF;
+    --signal:#2E6F6E;
+    --signal-dim:#E4EEED;
+    --route:#B5652A;
+    --rule:#D8D4CB;
+    --muted:#5B5F63;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em; }
+  .label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--signal);
+  }
+  a{ color:inherit; }
+
+  /* ---------- Route nav ---------- */
+  .route-nav{
+    position:fixed;
+    left:0; top:0; bottom:0;
+    width:64px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    z-index:50;
+    background:transparent;
+  }
+  .route-line{
+    position:absolute;
+    left:50%;
+    top:8%;
+    bottom:8%;
+    width:2px;
+    background:var(--rule);
+    transform:translateX(-50%);
+  }
+  .route-stations{
+    position:relative;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    height:84%;
+    z-index:2;
+  }
+  .station{
+    width:34px; height:34px;
+    border-radius:50%;
+    background:var(--paper-raised);
+    border:2px solid var(--rule);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.62rem;
+    color:var(--muted);
+    cursor:pointer;
+    transition:all .25s ease;
+    text-decoration:none;
+  }
+  .station:hover, .station.active{
+    border-color:var(--signal);
+    color:var(--signal);
+    background:var(--signal-dim);
+    transform:scale(1.12);
+  }
+  .station.active{ box-shadow:0 0 0 4px var(--signal-dim); }
+
+  @media (max-width:860px){
+    .route-nav{ display:none; }
+  }
+
+  /* ---------- Layout ---------- */
+  main{ margin-left:64px; }
+  @media (max-width:860px){ main{ margin-left:0; } }
+
+  section{
+    min-height:100vh;
+    padding:7rem 8vw 5rem;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    border-bottom:1px solid var(--rule);
+  }
+  section:last-of-type{ border-bottom:none; }
+
+  /* ---------- Hero ---------- */
+  #hero{
+    justify-content:flex-end;
+    position:relative;
+    overflow:hidden;
+  }
+  #hero .eyebrow{ margin-bottom:1.2rem; }
+  #hero h1{
+    font-size:clamp(2.4rem, 6vw, 4.6rem);
+    max-width:16ch;
+    margin-bottom:1.4rem;
+  }
+  #hero p.tagline{
+    font-size:1.15rem;
+    color:var(--muted);
+    max-width:52ch;
+    margin-bottom:2.4rem;
+  }
+  .hero-meta{
+    display:flex;
+    gap:2.5rem;
+    flex-wrap:wrap;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--muted);
+    padding-top:1.6rem;
+    border-top:1px solid var(--rule);
+  }
+  .hero-meta span b{ display:block; color:var(--ink); font-size:0.9rem; margin-top:0.2rem; }
+
+  /* ---------- Section headers ---------- */
+  .section-head{
+    display:flex;
+    align-items:baseline;
+    gap:1rem;
+    margin-bottom:2.6rem;
+  }
+  .section-head .station-code{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--route);
+    border:1px solid var(--route);
+    border-radius:999px;
+    padding:0.2rem 0.7rem;
+  }
+  .section-head h2{ font-size:clamp(1.6rem, 3vw, 2.3rem); }
+
+  /* ---------- Profil ---------- */
+  #profil .grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr;
+    gap:3rem;
+  }
+  #profil p{ max-width:60ch; color:var(--ink); }
+  #profil .facts{
+    display:flex;
+    flex-direction:column;
+    gap:1.1rem;
+  }
+  .fact{ border-left:2px solid var(--rule); padding-left:1rem; }
+  .fact .label{ display:block; margin-bottom:0.2rem; }
+  @media (max-width:860px){ #profil .grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Projekte ---------- */
+  .project-card{
+    background:var(--paper-raised);
+    border:1px solid var(--rule);
+    border-radius:4px;
+    padding:2.4rem;
+    margin-bottom:1.6rem;
+    position:relative;
+  }
+  .project-card .card-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    flex-wrap:wrap;
+    gap:1rem;
+    margin-bottom:1rem;
+  }
+  .project-card h3{ font-size:1.5rem; }
+  .project-card .status{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    color:var(--signal);
+    background:var(--signal-dim);
+    padding:0.25rem 0.6rem;
+    border-radius:999px;
+    white-space:nowrap;
+  }
+  .project-card .desc{ color:var(--muted); max-width:70ch; margin-bottom:1.2rem; }
+  .tag-row{ display:flex; gap:0.5rem; flex-wrap:wrap; }
+  .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    color:var(--muted);
+    border:1px solid var(--rule);
+    padding:0.2rem 0.55rem;
+    border-radius:3px;
+  }
+  .placeholder-note{
+    font-size:0.78rem;
+    color:var(--muted);
+    font-style:italic;
+    margin-top:1rem;
+    border-top:1px dashed var(--rule);
+    padding-top:0.8rem;
+  }
+
+  /* ---------- Publikationen ---------- */
+  .pub-item{
+    display:flex;
+    gap:1.5rem;
+    padding:1.3rem 0;
+    border-bottom:1px solid var(--rule);
+  }
+  .pub-item:last-child{ border-bottom:none; }
+  .pub-item .pub-icon{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--route);
+    font-size:0.8rem;
+    padding-top:0.2rem;
+    min-width:2.2rem;
+  }
+  .pub-item h4{ font-family:'IBM Plex Sans'; font-weight:600; font-size:1rem; margin-bottom:0.2rem; }
+  .pub-item p{ color:var(--muted); font-size:0.9rem; }
+
+  /* ---------- Kompetenzen ---------- */
+  .skills-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:1.6rem;
+  }
+  .skill-group .label{ margin-bottom:0.6rem; display:block; }
+  .skill-group ul{ list-style:none; }
+  .skill-group li{ padding:0.3rem 0; color:var(--ink); }
+  .skill-group li::before{ content:"— "; color:var(--rule); }
+
+  /* ---------- Kontakt ---------- */
+  #kontakt{ min-height:60vh; }
+  #kontakt h2{ font-size:clamp(1.8rem,4vw,2.6rem); max-width:20ch; margin-bottom:1.5rem; }
+  .contact-links{ display:flex; gap:2rem; flex-wrap:wrap; margin-top:1.5rem; }
+  .contact-links a{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    border-bottom:1px solid var(--ink);
+    padding-bottom:0.15rem;
+  }
+
+  ::selection{ background:var(--signal-dim); color:var(--signal); }
+</style>
+</head>
+<body>
+
+<nav class="route-nav" aria-label="Seitennavigation">
+  <div class="route-line"></div>
+  <div class="route-stations">
+    <a class="station active" href="#hero" data-target="hero">S0</a>
+    <a class="station" href="#profil" data-target="profil">S1</a>
+    <a class="station" href="#projekte" data-target="projekte">S2</a>
+    <a class="station" href="#publikationen" data-target="publikationen">S3</a>
+    <a class="station" href="#kompetenzen" data-target="kompetenzen">S4</a>
+    <a class="station" href="#kontakt" data-target="kontakt">S5</a>
+  </div>
+</nav>
+
+<main>
+
+  <section id="hero">
+    <div class="eyebrow label">Bewerbung Doktorandin — Human-Centered / Human-Machine Collaboration</div>
+    <h1>Nina — [Titel / Kernaussage deiner Forschung hier]</h1>
+    <p class="tagline">[Ein bis zwei Sätze: was dich an Human-Machine Collaboration interessiert und welche Frage du als Doktorandin verfolgen möchtest.]</p>
+    <div class="hero-meta">
+      <span>Hintergrund<b>M.Sc. Human-Centered Computing</b></span>
+      <span>Institution<b>Hochschule Reutlingen</b></span>
+      <span>Fokus<b>VR, Accessibility, DesignOps</b></span>
+    </div>
+  </section>
+
+  <section id="profil">
+    <div class="section-head"><span class="station-code">S1</span><h2>Profil</h2></div>
+    <div class="grid">
+      <p>[Kurzer Fließtext: akademischer Werdegang von Medizininformatik (Tübingen) über Human-Centered Computing (Reutlingen) bis zur aktuellen Forschung. Was zieht sich als roter Faden durch — z.B. der Blick auf Mensch-Technik-Interaktion aus einer Nutzer:innen-Perspektive?]</p>
+      <div class="facts">
+        <div class="fact"><span class="label">Studium</span>M.Sc. Human-Centered Computing, Hochschule Reutlingen</div>
+        <div class="fact"><span class="label">Grundstudium</span>B.Sc. Medizininformatik, Universität Tübingen</div>
+        <div class="fact"><span class="label">Praxis</span>Mercedes-Benz Group AG — Tech4People</div>
+        <div class="fact"><span class="label">Betreuung</span>Prof. Dr. Gabriela Tullius, Prof. Dr.-Ing. Peter Hertkorn</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projekte">
+    <div class="section-head"><span class="station-code">S2</span><h2>Projekte</h2></div>
+
+    <div class="project-card">
+      <div class="card-top">
+        <h3>WheelCity — VR-Rollstuhlsimulation</h3>
+        <span class="status">Masterarbeit</span>
+      </div>
+      <p class="desc">[Kurzbeschreibung: VR-Simulation urbaner Barrieren in Unity/XR für Pico HMD, Studiendesign, zentrale Erkenntnisse.]</p>
+      <div class="tag-row">
+        <span class="tag">Unity / XR Interaction Toolkit</span>
+        <span class="tag">Studiendesign N=13</span>
+        <span class="tag">IPQ · IRI · PTDS</span>
+      </div>
+      <p class="placeholder-note">Platzhalter — hier später: Screenshots/Video der Stationen S1/S2/F1–F4, Studienaufbau-Grafik, zentrale Ergebnisse.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="card-top">
+        <h3>DesignOps-Prozessmodell</h3>
+        <span class="status">Masterarbeit</span>
+      </div>
+      <p class="desc">[Kurzbeschreibung: Entwicklung eines DesignOps-Prozessmodells bei Mercedes-Benz mit praktischer Umsetzung im Time-Management-Team, BPMN-Modellierung des HR-Designer-Workflows.]</p>
+      <div class="tag-row">
+        <span class="tag">BPMN</span>
+        <span class="tag">Ist-Analyse</span>
+        <span class="tag">Mercedes-Benz Tech4People</span>
+      </div>
+      <p class="placeholder-note">Platzhalter — hier später: BPMN-Diagramm, Vorher-Nachher-Vergleich des Designprozesses.</p>
+    </div>
+
+    <div class="project-card">
+      <div class="card-top">
+        <h3>[Weiteres Projekt]</h3>
+        <span class="status">Platzhalter</span>
+      </div>
+      <p class="desc">[Raum für ein drittes Projekt — z.B. aus dem Bachelor oder aus früherer Praxiserfahrung.]</p>
+      <div class="tag-row"><span class="tag">Tag</span><span class="tag">Tag</span></div>
+    </div>
+  </section>
+
+  <section id="publikationen">
+    <div class="section-head"><span class="station-code">S3</span><h2>Publikationen &amp; Vorträge</h2></div>
+
+    <div class="pub-item">
+      <div class="pub-icon">PAPER</div>
+      <div>
+        <h4>Sensibilisierung für die Lebensrealität von Rollstuhlfahrer:innen durch aktive Aufgabenbewältigung in VR</h4>
+        <p>Eingereicht bei Informatics Inside, Mai 2026 · [Status/Link ergänzen]</p>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-icon">POSTER</div>
+      <div>
+        <h4>Konferenzposter, Informatics Inside</h4>
+        <p>A2-Format, Hochschule-Reutlingen-Template · [Bild/PDF ergänzen]</p>
+      </div>
+    </div>
+    <div class="pub-item">
+      <div class="pub-icon">TALK</div>
+      <div>
+        <h4>Konferenzvortrag, Informatics Inside</h4>
+        <p>[Kurzbeschreibung / Slides-Link ergänzen]</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="kompetenzen">
+    <div class="section-head"><span class="station-code">S4</span><h2>Methoden &amp; Kompetenzen</h2></div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <span class="label">Entwicklung</span>
+        <ul><li>Unity / XR Interaction Toolkit</li><li>C#</li><li>[weitere ergänzen]</li></ul>
+      </div>
+      <div class="skill-group">
+        <span class="label">Forschungsmethodik</span>
+        <ul><li>Studiendesign (Between-Subjects)</li><li>Statistik: t-Tests, Cronbach's Alpha</li><li>Fragebogeninstrumente (IPQ, IRI, PTDS)</li></ul>
+      </div>
+      <div class="skill-group">
+        <span class="label">Prozess &amp; Modellierung</span>
+        <ul><li>BPMN</li><li>DesignOps / Ist-Analyse</li><li>[weitere ergänzen]</li></ul>
+      </div>
+      <div class="skill-group">
+        <span class="label">Schreiben &amp; Publizieren</span>
+        <ul><li>LaTeX (ACM-Format)</li><li>Wissenschaftliches Schreiben</li><li>Konferenzposter &amp; -vorträge</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="section-head"><span class="station-code">S5</span><h2>Kontakt</h2></div>
+    <h2>[Kurzer Call-to-Action-Satz, z.B. „Ich freue mich über den Austausch zu Human-Machine Collaboration."]</h2>
+    <div class="contact-links">
+      <a href="mailto:">E-Mail</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">CV (PDF)</a>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  // Aktive Station beim Scrollen hervorheben
+  const stations = document.querySelectorAll('.station');
+  const sections = document.querySelectorAll('main section');
+  const map = new Map();
+  stations.forEach(s => map.set(s.dataset.target, s));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        stations.forEach(s => s.classList.remove('active'));
+        const active = map.get(entry.target.id);
+        if(active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.5 });
+
+  sections.forEach(sec => observer.observe(sec));
+</script>
+
+</body>
+</html>
