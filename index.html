@@ -70,6 +70,25 @@
   }
   #hero h1 .pink{ color:var(--pink); }
   #hero h1 .lav{ color:var(--lav); }
+
+  .quote-block{ position:relative; max-width:20ch; margin-bottom:1.8rem; padding-left:0.2rem; }
+  .quote-block .quote-mark{
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-size:5rem; line-height:1; color:var(--pink);
+    position:absolute; left:-2.6rem; top:-1.8rem; opacity:0.9;
+  }
+  .quote-block blockquote{
+    font-family:'Plus Jakarta Sans', sans-serif;
+    font-weight:700;
+    font-size:clamp(2rem, 4.6vw, 3.4rem);
+    line-height:1.12;
+    letter-spacing:-0.02em;
+  }
+  .quote-block cite{
+    display:block; margin-top:1rem; font-style:normal;
+    font-size:0.95rem; font-weight:600; color:var(--lav);
+  }
+  @media (max-width:700px){ .quote-block .quote-mark{ left:-1.4rem; top:-1.4rem; font-size:3.5rem; } }
   #hero p.tagline{
     font-size:1.2rem; color:var(--muted); max-width:56ch; margin-bottom:2.6rem;
   }
@@ -190,8 +209,12 @@
 
   <section id="hero">
     <div class="eyebrow"><span class="spark">✻</span> Aktuell auf der Suche nach einer Promotionsstelle</div>
-    <h1>Menschen und Maschinen <span class="pink">verständlich</span> zusammendenken <span class="lav">✻</span></h1>
-    <p class="tagline">[Ein bis zwei Sätze: was dich an Human-Machine Collaboration interessiert und welche Frage du als Doktorandin verfolgen möchtest.] Aktuell <b>M.Sc.-Studentin Human-Centered Computing</b> an der Hochschule Reutlingen.</p>
+    <div class="quote-block">
+      <span class="quote-mark">„</span>
+      <blockquote>...the goal is to create a shared understanding of the world.</blockquote>
+      <cite>— Cliff Kuang, „User Friendly" (2019)</cite>
+    </div>
+    <p class="tagline">[Ein bis zwei Sätze, wie das Zitat zu deiner eigenen Forschungsfrage überleitet — z.B. wie WheelCity Barrieren erlebbar statt unsichtbar macht.] Aktuell <b>M.Sc.-Studentin Human-Centered Computing</b> an der Hochschule Reutlingen.</p>
     <div class="tool-strip">
       <span>Unity</span><span>XR / VR</span><span>LaTeX</span><span>BPMN</span><span>Statistik</span><span>Figma</span>
     </div>
