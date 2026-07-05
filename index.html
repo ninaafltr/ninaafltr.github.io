@@ -5,315 +5,243 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nina — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1B1F23;
-    --paper:#F7F6F3;
-    --paper-raised:#FFFFFF;
-    --signal:#2E6F6E;
-    --signal-dim:#E4EEED;
-    --route:#B5652A;
-    --rule:#D8D4CB;
-    --muted:#5B5F63;
+    --bg:#F6F3F7;
+    --paper:#FFFFFF;
+    --ink:#211C29;
+    --muted:#726C7C;
+    --pink:#FF3D8A;
+    --pink-tint:#FFE9F2;
+    --lav:#7C5CE0;
+    --lav-tint:#EDE7FB;
+    --line:#E5E0EA;
   }
   *{box-sizing:border-box; margin:0; padding:0;}
   html{scroll-behavior:smooth;}
   body{
-    background:var(--paper);
+    background:var(--bg);
     color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    line-height:1.55;
+    font-family:'Inter', sans-serif;
+    line-height:1.6;
     -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3{ font-family:'Fraunces', serif; font-weight:500; letter-spacing:-0.01em; }
-  .label{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.72rem;
-    letter-spacing:0.08em;
-    text-transform:uppercase;
-    color:var(--signal);
-  }
-  a{ color:inherit; }
+  h1,h2,h3{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; letter-spacing:-0.02em; }
+  a{ color:inherit; text-decoration:none; }
+  .spark{ color:var(--pink); font-size:0.8em; }
+  .spark.lav{ color:var(--lav); }
 
-  /* ---------- Route nav ---------- */
-  .route-nav{
-    position:fixed;
-    left:0; top:0; bottom:0;
-    width:64px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    z-index:50;
-    background:transparent;
+  /* ---------- Top nav ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:1.4rem 6vw;
+    background:rgba(246,243,247,0.85);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
   }
-  .route-line{
-    position:absolute;
-    left:50%;
-    top:8%;
-    bottom:8%;
-    width:2px;
-    background:var(--rule);
-    transform:translateX(-50%);
+  header .logo{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:700; font-size:1.05rem; }
+  header .logo .dot{ color:var(--pink); }
+  nav ul{ list-style:none; display:flex; gap:2rem; }
+  nav a{
+    font-size:0.92rem; color:var(--muted); font-weight:500;
+    padding-bottom:0.2rem; border-bottom:2px solid transparent;
+    transition:all .2s ease;
   }
-  .route-stations{
-    position:relative;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-    height:84%;
-    z-index:2;
-  }
-  .station{
-    width:34px; height:34px;
-    border-radius:50%;
-    background:var(--paper-raised);
-    border:2px solid var(--rule);
-    display:flex; align-items:center; justify-content:center;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.62rem;
-    color:var(--muted);
-    cursor:pointer;
-    transition:all .25s ease;
-    text-decoration:none;
-  }
-  .station:hover, .station.active{
-    border-color:var(--signal);
-    color:var(--signal);
-    background:var(--signal-dim);
-    transform:scale(1.12);
-  }
-  .station.active{ box-shadow:0 0 0 4px var(--signal-dim); }
+  nav a:hover, nav a.active{ color:var(--ink); border-bottom-color:var(--pink); }
+  @media (max-width:700px){ nav ul{ gap:1rem; } nav a{ font-size:0.8rem; } }
 
-  @media (max-width:860px){
-    .route-nav{ display:none; }
-  }
-
-  /* ---------- Layout ---------- */
-  main{ margin-left:64px; }
-  @media (max-width:860px){ main{ margin-left:0; } }
-
-  section{
-    min-height:100vh;
-    padding:7rem 8vw 5rem;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    border-bottom:1px solid var(--rule);
-  }
-  section:last-of-type{ border-bottom:none; }
+  section{ padding:6rem 6vw; max-width:1180px; margin:0 auto; }
 
   /* ---------- Hero ---------- */
-  #hero{
-    justify-content:flex-end;
-    position:relative;
-    overflow:hidden;
+  #hero{ padding-top:5rem; padding-bottom:4rem; }
+  #hero .eyebrow{
+    display:inline-flex; align-items:center; gap:0.5rem;
+    font-size:0.85rem; color:var(--muted); font-weight:500;
+    background:var(--paper); border:1px solid var(--line);
+    padding:0.45rem 1rem; border-radius:999px; margin-bottom:2rem;
   }
-  #hero .eyebrow{ margin-bottom:1.2rem; }
   #hero h1{
-    font-size:clamp(2.4rem, 6vw, 4.6rem);
+    font-size:clamp(2.6rem, 6.4vw, 4.8rem);
+    line-height:1.05;
     max-width:16ch;
-    margin-bottom:1.4rem;
+    margin-bottom:1.6rem;
   }
+  #hero h1 .pink{ color:var(--pink); }
+  #hero h1 .lav{ color:var(--lav); }
   #hero p.tagline{
-    font-size:1.15rem;
-    color:var(--muted);
-    max-width:52ch;
-    margin-bottom:2.4rem;
+    font-size:1.2rem; color:var(--muted); max-width:56ch; margin-bottom:2.6rem;
   }
-  .hero-meta{
-    display:flex;
-    gap:2.5rem;
-    flex-wrap:wrap;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.78rem;
-    color:var(--muted);
-    padding-top:1.6rem;
-    border-top:1px solid var(--rule);
-  }
-  .hero-meta span b{ display:block; color:var(--ink); font-size:0.9rem; margin-top:0.2rem; }
+  #hero .tagline b{ color:var(--ink); font-weight:600; }
 
-  /* ---------- Section headers ---------- */
-  .section-head{
-    display:flex;
-    align-items:baseline;
-    gap:1rem;
-    margin-bottom:2.6rem;
+  .tool-strip{
+    display:flex; gap:2.4rem; flex-wrap:wrap; align-items:center;
+    margin-top:3.5rem; padding-top:2.2rem; border-top:1px solid var(--line);
   }
-  .section-head .station-code{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.85rem;
-    color:var(--route);
-    border:1px solid var(--route);
-    border-radius:999px;
-    padding:0.2rem 0.7rem;
+  .tool-strip span{
+    font-family:'Plus Jakarta Sans', sans-serif; font-weight:600;
+    font-size:0.95rem; color:var(--muted);
   }
-  .section-head h2{ font-size:clamp(1.6rem, 3vw, 2.3rem); }
+
+  /* ---------- Section head ---------- */
+  .section-head{ margin-bottom:2.8rem; }
+  .section-head .kicker{
+    display:flex; align-items:center; gap:0.5rem;
+    font-size:0.85rem; font-weight:600; color:var(--pink); margin-bottom:0.6rem;
+  }
+  .section-head h2{ font-size:clamp(1.8rem, 3.4vw, 2.6rem); }
 
   /* ---------- Profil ---------- */
-  #profil .grid{
-    display:grid;
-    grid-template-columns:1.3fr 1fr;
-    gap:3rem;
-  }
-  #profil p{ max-width:60ch; color:var(--ink); }
-  #profil .facts{
-    display:flex;
-    flex-direction:column;
-    gap:1.1rem;
-  }
-  .fact{ border-left:2px solid var(--rule); padding-left:1rem; }
-  .fact .label{ display:block; margin-bottom:0.2rem; }
-  @media (max-width:860px){ #profil .grid{ grid-template-columns:1fr; } }
+  #profil{ background:var(--paper); border-radius:28px; margin-top:1rem; margin-bottom:1rem; }
+  #profil .grid-cols{ display:grid; grid-template-columns:1.3fr 1fr; gap:3rem; }
+  #profil p{ max-width:60ch; font-size:1.05rem; }
+  .facts{ display:flex; flex-direction:column; gap:1.2rem; }
+  .fact{ background:var(--lav-tint); border-radius:14px; padding:1rem 1.2rem; }
+  .fact .k{ display:block; font-size:0.72rem; color:var(--lav); font-weight:700; letter-spacing:0.04em; margin-bottom:0.25rem; }
+  .fact .v{ font-size:0.95rem; }
+  @media (max-width:860px){ #profil .grid-cols{ grid-template-columns:1fr; } }
 
   /* ---------- Projekte ---------- */
   .project-card{
-    background:var(--paper-raised);
-    border:1px solid var(--rule);
-    border-radius:4px;
-    padding:2.4rem;
+    background:var(--paper);
+    border-radius:24px;
+    padding:2rem;
+    margin-bottom:2rem;
+    border:1px solid var(--line);
+  }
+  .mockup{
+    border-radius:16px;
+    height:200px;
     margin-bottom:1.6rem;
+    display:flex; align-items:center; justify-content:center;
     position:relative;
+    overflow:hidden;
   }
-  .project-card .card-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    flex-wrap:wrap;
-    gap:1rem;
-    margin-bottom:1rem;
+  .mockup .dots{ position:absolute; top:14px; left:16px; display:flex; gap:6px; }
+  .mockup .dots span{ width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.55); }
+  .mockup .mockup-label{
+    font-family:'Plus Jakarta Sans', sans-serif; font-weight:700; color:rgba(255,255,255,0.92); font-size:1rem;
   }
+  .mockup.pink-grad{ background:linear-gradient(135deg, #FF3D8A, #FF8FBE); }
+  .mockup.lav-grad{ background:linear-gradient(135deg, #7C5CE0, #B7A6F2); }
+
+  .project-card .card-top{ display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:0.8rem; }
   .project-card h3{ font-size:1.5rem; }
   .project-card .status{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.7rem;
-    color:var(--signal);
-    background:var(--signal-dim);
-    padding:0.25rem 0.6rem;
-    border-radius:999px;
-    white-space:nowrap;
+    font-size:0.75rem; font-weight:600; color:var(--lav);
+    background:var(--lav-tint); padding:0.35rem 0.8rem; border-radius:999px; white-space:nowrap;
   }
   .project-card .desc{ color:var(--muted); max-width:70ch; margin-bottom:1.2rem; }
   .tag-row{ display:flex; gap:0.5rem; flex-wrap:wrap; }
-  .tag{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.68rem;
-    color:var(--muted);
-    border:1px solid var(--rule);
-    padding:0.2rem 0.55rem;
-    border-radius:3px;
-  }
+  .tag{ font-size:0.78rem; font-weight:500; color:var(--ink); background:var(--bg); padding:0.3rem 0.75rem; border-radius:999px; }
   .placeholder-note{
-    font-size:0.78rem;
-    color:var(--muted);
-    font-style:italic;
-    margin-top:1rem;
-    border-top:1px dashed var(--rule);
-    padding-top:0.8rem;
+    font-size:0.82rem; color:var(--muted); font-style:italic;
+    margin-top:1.2rem; border-top:1px dashed var(--line); padding-top:0.9rem;
   }
 
   /* ---------- Publikationen ---------- */
-  .pub-item{
-    display:flex;
-    gap:1.5rem;
-    padding:1.3rem 0;
-    border-bottom:1px solid var(--rule);
-  }
+  .pub-item{ display:flex; gap:1.5rem; padding:1.3rem 0; border-bottom:1px solid var(--line); align-items:flex-start; }
   .pub-item:last-child{ border-bottom:none; }
   .pub-item .pub-icon{
-    font-family:'IBM Plex Mono', monospace;
-    color:var(--route);
-    font-size:0.8rem;
-    padding-top:0.2rem;
-    min-width:2.2rem;
+    font-size:0.72rem; font-weight:700; color:var(--pink);
+    background:var(--pink-tint); padding:0.35rem 0.7rem; border-radius:999px; white-space:nowrap;
   }
-  .pub-item h4{ font-family:'IBM Plex Sans'; font-weight:600; font-size:1rem; margin-bottom:0.2rem; }
-  .pub-item p{ color:var(--muted); font-size:0.9rem; }
+  .pub-item h4{ font-family:'Plus Jakarta Sans'; font-weight:700; font-size:1.05rem; margin-bottom:0.3rem; }
+  .pub-item p{ color:var(--muted); font-size:0.92rem; }
 
   /* ---------- Kompetenzen ---------- */
-  .skills-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
-    gap:1.6rem;
-  }
-  .skill-group .label{ margin-bottom:0.6rem; display:block; }
+  .skills-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1.6rem; }
+  .skill-group{ background:var(--paper); border-radius:18px; padding:1.6rem; border:1px solid var(--line); }
+  .skill-group .k{ font-weight:700; color:var(--pink); font-size:0.9rem; margin-bottom:0.9rem; display:block; }
   .skill-group ul{ list-style:none; }
-  .skill-group li{ padding:0.3rem 0; color:var(--ink); }
-  .skill-group li::before{ content:"— "; color:var(--rule); }
+  .skill-group li{ padding:0.32rem 0; font-size:0.95rem; }
 
   /* ---------- Kontakt ---------- */
-  #kontakt{ min-height:60vh; }
-  #kontakt h2{ font-size:clamp(1.8rem,4vw,2.6rem); max-width:20ch; margin-bottom:1.5rem; }
-  .contact-links{ display:flex; gap:2rem; flex-wrap:wrap; margin-top:1.5rem; }
+  #kontakt{ text-align:center; padding-bottom:8rem; }
+  #kontakt h2{ font-size:clamp(2rem,4.4vw,3rem); max-width:18ch; margin:0 auto 1.8rem; }
+  .contact-links{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1rem; }
   .contact-links a{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.85rem;
-    border-bottom:1px solid var(--ink);
-    padding-bottom:0.15rem;
+    font-weight:600; font-size:0.95rem; background:var(--ink); color:#fff;
+    padding:0.8rem 1.6rem; border-radius:999px; transition:transform .15s ease;
   }
+  .contact-links a:hover{ transform:translateY(-2px); }
+  .contact-links a.secondary{ background:var(--paper); color:var(--ink); border:1px solid var(--line); }
 
-  ::selection{ background:var(--signal-dim); color:var(--signal); }
+  ::selection{ background:var(--pink-tint); color:var(--pink); }
 </style>
 </head>
 <body>
 
-<nav class="route-nav" aria-label="Seitennavigation">
-  <div class="route-line"></div>
-  <div class="route-stations">
-    <a class="station active" href="#hero" data-target="hero">S0</a>
-    <a class="station" href="#profil" data-target="profil">S1</a>
-    <a class="station" href="#projekte" data-target="projekte">S2</a>
-    <a class="station" href="#publikationen" data-target="publikationen">S3</a>
-    <a class="station" href="#kompetenzen" data-target="kompetenzen">S4</a>
-    <a class="station" href="#kontakt" data-target="kontakt">S5</a>
-  </div>
-</nav>
+<header>
+  <div class="logo">nina<span class="dot">.</span>portfolio</div>
+  <nav>
+    <ul>
+      <li><a href="#hero" class="active">Home</a></li>
+      <li><a href="#profil">Profil</a></li>
+      <li><a href="#projekte">Projekte</a></li>
+      <li><a href="#publikationen">Publikationen</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul>
+  </nav>
+</header>
 
 <main>
 
   <section id="hero">
-    <div class="eyebrow label">Bewerbung Doktorandin — Human-Centered / Human-Machine Collaboration</div>
-    <h1>Nina — [Titel / Kernaussage deiner Forschung hier]</h1>
-    <p class="tagline">[Ein bis zwei Sätze: was dich an Human-Machine Collaboration interessiert und welche Frage du als Doktorandin verfolgen möchtest.]</p>
-    <div class="hero-meta">
-      <span>Hintergrund<b>M.Sc. Human-Centered Computing</b></span>
-      <span>Institution<b>Hochschule Reutlingen</b></span>
-      <span>Fokus<b>VR, Accessibility, DesignOps</b></span>
+    <div class="eyebrow"><span class="spark">✻</span> Aktuell auf der Suche nach einer Promotionsstelle</div>
+    <h1>Menschen und Maschinen <span class="pink">verständlich</span> zusammendenken <span class="lav">✻</span></h1>
+    <p class="tagline">[Ein bis zwei Sätze: was dich an Human-Machine Collaboration interessiert und welche Frage du als Doktorandin verfolgen möchtest.] Aktuell <b>M.Sc.-Studentin Human-Centered Computing</b> an der Hochschule Reutlingen.</p>
+    <div class="tool-strip">
+      <span>Unity</span><span>XR / VR</span><span>LaTeX</span><span>BPMN</span><span>Statistik</span><span>Figma</span>
     </div>
   </section>
 
   <section id="profil">
-    <div class="section-head"><span class="station-code">S1</span><h2>Profil</h2></div>
-    <div class="grid">
+    <div class="section-head">
+      <div class="kicker"><span class="spark">✻</span> Profil</div>
+      <h2>Wer ich bin</h2>
+    </div>
+    <div class="grid-cols">
       <p>[Kurzer Fließtext: akademischer Werdegang von Medizininformatik (Tübingen) über Human-Centered Computing (Reutlingen) bis zur aktuellen Forschung. Was zieht sich als roter Faden durch — z.B. der Blick auf Mensch-Technik-Interaktion aus einer Nutzer:innen-Perspektive?]</p>
       <div class="facts">
-        <div class="fact"><span class="label">Studium</span>M.Sc. Human-Centered Computing, Hochschule Reutlingen</div>
-        <div class="fact"><span class="label">Grundstudium</span>B.Sc. Medizininformatik, Universität Tübingen</div>
-        <div class="fact"><span class="label">Praxis</span>Mercedes-Benz Group AG — Tech4People</div>
-        <div class="fact"><span class="label">Betreuung</span>Prof. Dr. Gabriela Tullius, Prof. Dr.-Ing. Peter Hertkorn</div>
+        <div class="fact"><span class="k">STUDIUM</span><span class="v">M.Sc. Human-Centered Computing, Hochschule Reutlingen</span></div>
+        <div class="fact"><span class="k">GRUNDSTUDIUM</span><span class="v">B.Sc. Medizininformatik, Universität Tübingen</span></div>
+        <div class="fact"><span class="k">PRAXIS</span><span class="v">Mercedes-Benz Group AG — Tech4People</span></div>
+        <div class="fact"><span class="k">BETREUUNG</span><span class="v">Prof. Dr. Gabriela Tullius, Prof. Dr.-Ing. Peter Hertkorn</span></div>
       </div>
     </div>
   </section>
 
   <section id="projekte">
-    <div class="section-head"><span class="station-code">S2</span><h2>Projekte</h2></div>
+    <div class="section-head">
+      <div class="kicker"><span class="spark lav">✻</span> Projekte</div>
+      <h2>Ausgewählte Arbeiten</h2>
+    </div>
 
     <div class="project-card">
+      <div class="mockup pink-grad">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <span class="mockup-label">WheelCity — VR Preview</span>
+      </div>
       <div class="card-top">
         <h3>WheelCity — VR-Rollstuhlsimulation</h3>
         <span class="status">Masterarbeit</span>
       </div>
       <p class="desc">[Kurzbeschreibung: VR-Simulation urbaner Barrieren in Unity/XR für Pico HMD, Studiendesign, zentrale Erkenntnisse.]</p>
       <div class="tag-row">
-        <span class="tag">Unity / XR Interaction Toolkit</span>
+        <span class="tag">Unity / XR</span>
         <span class="tag">Studiendesign N=13</span>
         <span class="tag">IPQ · IRI · PTDS</span>
       </div>
-      <p class="placeholder-note">Platzhalter — hier später: Screenshots/Video der Stationen S1/S2/F1–F4, Studienaufbau-Grafik, zentrale Ergebnisse.</p>
+      <p class="placeholder-note">Platzhalter — hier später: echte Screenshots/Video der Stationen S1/S2/F1–F4 statt Farbverlauf einsetzen.</p>
     </div>
 
     <div class="project-card">
+      <div class="mockup lav-grad">
+        <div class="dots"><span></span><span></span><span></span></div>
+        <span class="mockup-label">DesignOps — Prozessmodell</span>
+      </div>
       <div class="card-top">
         <h3>DesignOps-Prozessmodell</h3>
         <span class="status">Masterarbeit</span>
@@ -324,38 +252,44 @@
         <span class="tag">Ist-Analyse</span>
         <span class="tag">Mercedes-Benz Tech4People</span>
       </div>
-      <p class="placeholder-note">Platzhalter — hier später: BPMN-Diagramm, Vorher-Nachher-Vergleich des Designprozesses.</p>
+      <p class="placeholder-note">Platzhalter — hier später: BPMN-Diagramm, Vorher-Nachher-Vergleich statt Farbverlauf einsetzen.</p>
     </div>
 
     <div class="project-card">
+      <div class="mockup" style="background:var(--bg); border:1px dashed var(--line);">
+        <span class="mockup-label" style="color:var(--muted);">+ Weiteres Projekt</span>
+      </div>
       <div class="card-top">
         <h3>[Weiteres Projekt]</h3>
         <span class="status">Platzhalter</span>
       </div>
-      <p class="desc">[Raum für ein drittes Projekt — z.B. aus dem Bachelor oder aus früherer Praxiserfahrung.]</p>
+      <p class="desc">[Raum für ein drittes Projekt — z.B. aus dem Bachelor oder früherer Praxiserfahrung.]</p>
       <div class="tag-row"><span class="tag">Tag</span><span class="tag">Tag</span></div>
     </div>
   </section>
 
   <section id="publikationen">
-    <div class="section-head"><span class="station-code">S3</span><h2>Publikationen &amp; Vorträge</h2></div>
+    <div class="section-head">
+      <div class="kicker"><span class="spark">✻</span> Publikationen</div>
+      <h2>Publikationen &amp; Vorträge</h2>
+    </div>
 
     <div class="pub-item">
-      <div class="pub-icon">PAPER</div>
+      <span class="pub-icon">PAPER</span>
       <div>
         <h4>Sensibilisierung für die Lebensrealität von Rollstuhlfahrer:innen durch aktive Aufgabenbewältigung in VR</h4>
         <p>Eingereicht bei Informatics Inside, Mai 2026 · [Status/Link ergänzen]</p>
       </div>
     </div>
     <div class="pub-item">
-      <div class="pub-icon">POSTER</div>
+      <span class="pub-icon">POSTER</span>
       <div>
         <h4>Konferenzposter, Informatics Inside</h4>
         <p>A2-Format, Hochschule-Reutlingen-Template · [Bild/PDF ergänzen]</p>
       </div>
     </div>
     <div class="pub-item">
-      <div class="pub-icon">TALK</div>
+      <span class="pub-icon">TALK</span>
       <div>
         <h4>Konferenzvortrag, Informatics Inside</h4>
         <p>[Kurzbeschreibung / Slides-Link ergänzen]</p>
@@ -364,56 +298,56 @@
   </section>
 
   <section id="kompetenzen">
-    <div class="section-head"><span class="station-code">S4</span><h2>Methoden &amp; Kompetenzen</h2></div>
+    <div class="section-head">
+      <div class="kicker"><span class="spark lav">✻</span> Kompetenzen</div>
+      <h2>Methoden &amp; Skills</h2>
+    </div>
     <div class="skills-grid">
       <div class="skill-group">
-        <span class="label">Entwicklung</span>
+        <span class="k">Entwicklung</span>
         <ul><li>Unity / XR Interaction Toolkit</li><li>C#</li><li>[weitere ergänzen]</li></ul>
       </div>
       <div class="skill-group">
-        <span class="label">Forschungsmethodik</span>
-        <ul><li>Studiendesign (Between-Subjects)</li><li>Statistik: t-Tests, Cronbach's Alpha</li><li>Fragebogeninstrumente (IPQ, IRI, PTDS)</li></ul>
+        <span class="k">Forschungsmethodik</span>
+        <ul><li>Studiendesign (Between-Subjects)</li><li>Statistik: t-Tests, Cronbach's Alpha</li><li>IPQ, IRI, PTDS</li></ul>
       </div>
       <div class="skill-group">
-        <span class="label">Prozess &amp; Modellierung</span>
+        <span class="k">Prozess &amp; Modellierung</span>
         <ul><li>BPMN</li><li>DesignOps / Ist-Analyse</li><li>[weitere ergänzen]</li></ul>
       </div>
       <div class="skill-group">
-        <span class="label">Schreiben &amp; Publizieren</span>
+        <span class="k">Schreiben &amp; Publizieren</span>
         <ul><li>LaTeX (ACM-Format)</li><li>Wissenschaftliches Schreiben</li><li>Konferenzposter &amp; -vorträge</li></ul>
       </div>
     </div>
   </section>
 
   <section id="kontakt">
-    <div class="section-head"><span class="station-code">S5</span><h2>Kontakt</h2></div>
+    <div class="section-head" style="justify-content:center;">
+      <div class="kicker" style="justify-content:center;"><span class="spark">✻</span> Kontakt</div>
+    </div>
     <h2>[Kurzer Call-to-Action-Satz, z.B. „Ich freue mich über den Austausch zu Human-Machine Collaboration."]</h2>
     <div class="contact-links">
-      <a href="mailto:">E-Mail</a>
-      <a href="#">LinkedIn</a>
-      <a href="#">CV (PDF)</a>
+      <a href="mailto:">E-Mail schreiben</a>
+      <a href="#" class="secondary">LinkedIn</a>
+      <a href="#" class="secondary">CV (PDF)</a>
     </div>
   </section>
 
 </main>
 
 <script>
-  // Aktive Station beim Scrollen hervorheben
-  const stations = document.querySelectorAll('.station');
+  const navLinks = document.querySelectorAll('header nav a');
   const sections = document.querySelectorAll('main section');
-  const map = new Map();
-  stations.forEach(s => map.set(s.dataset.target, s));
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
-        stations.forEach(s => s.classList.remove('active'));
-        const active = map.get(entry.target.id);
-        if(active) active.classList.add('active');
+        navLinks.forEach(l => l.classList.remove('active'));
+        const link = document.querySelector(`header nav a[href="#${entry.target.id}"]`);
+        if(link) link.classList.add('active');
       }
     });
-  }, { threshold: 0.5 });
-
+  }, { threshold: 0.4 });
   sections.forEach(sec => observer.observe(sec));
 </script>
 
