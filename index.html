@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nina's Portfolio</title>
+<title>Nina Floeter — Portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -24,183 +24,182 @@
     background:var(--bg);
     color:var(--ink);
     font-family:'Inter', sans-serif;
-    line-height:1.6;
+    line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:800; letter-spacing:-0.02em; }
+  h1,h2,h3{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:700; letter-spacing:-0.01em; }
   a{ color:inherit; text-decoration:none; }
-  .spark{ color:var(--pink); font-size:0.8em; }
+  .spark{ color:var(--lav); font-size:0.75em; }
   .spark.lav{ color:var(--lav); }
 
   /* ---------- Top nav ---------- */
   header{
     position:sticky; top:0; z-index:50;
     display:flex; justify-content:space-between; align-items:center;
-    padding:1.4rem 6vw;
-    background:rgba(246,243,247,0.85);
+    padding:1rem 6vw;
+    background:rgba(246,243,247,0.94);
     backdrop-filter:blur(8px);
     border-bottom:1px solid var(--line);
   }
-  header .logo{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:700; font-size:1.05rem; }
-  header .logo .dot{ color:var(--pink); }
+  header .logo{ font-family:'Plus Jakarta Sans', sans-serif; font-weight:700; font-size:1rem; }
   nav ul{ list-style:none; display:flex; gap:2rem; }
   nav a{
-    font-size:0.92rem; color:var(--muted); font-weight:500;
+    font-size:0.88rem; color:var(--muted); font-weight:500;
     padding-bottom:0.2rem; border-bottom:2px solid transparent;
     transition:all .2s ease;
   }
-  nav a:hover, nav a.active{ color:var(--ink); border-bottom-color:var(--pink); }
-  @media (max-width:700px){ nav ul{ gap:1rem; } nav a{ font-size:0.8rem; } }
+  nav a:hover, nav a.active{ color:var(--ink); border-bottom-color:var(--lav); }
+  @media (max-width:700px){ nav ul{ gap:1rem; } nav a{ font-size:0.76rem; } }
 
-  section{ padding:6rem 6vw; max-width:1180px; margin:0 auto; }
+  section{ padding:5.5rem 6vw; max-width:1080px; margin:0 auto; }
 
   /* ---------- Hero ---------- */
-  #hero{ padding-top:5rem; padding-bottom:4rem; }
+  #hero{ padding-top:4.5rem; padding-bottom:3rem; }
+  .avatar-lg{
+    width:140px; height:140px; border-radius:10px;
+    background:var(--paper); border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .avatar-lg img{ width:100%; height:100%; object-fit:cover; display:block; }
+  .avatar-lg span{ font-size:0.75rem; color:var(--muted); font-weight:600; }
+  #hero .full-name{ font-size:1.6rem; font-weight:700; font-family:'Plus Jakarta Sans', sans-serif; margin-bottom:0.4rem; }
   #hero .eyebrow{
     display:inline-flex; align-items:center; gap:0.5rem;
     font-size:0.85rem; color:var(--muted); font-weight:500;
     background:var(--paper); border:1px solid var(--line);
-    padding:0.45rem 1rem; border-radius:999px; margin-bottom:2rem;
+    padding:0.4rem 0.9rem; border-radius:6px; margin-bottom:1.6rem;
   }
   #hero h1{
-    font-size:clamp(2.6rem, 6.4vw, 4.8rem);
-    line-height:1.05;
-    max-width:16ch;
-    margin-bottom:1.6rem;
+    font-size:clamp(2rem, 4.2vw, 3rem);
+    line-height:1.15;
+    max-width:22ch;
+    margin-bottom:1.2rem;
   }
-  #hero h1 .pink{ color:var(--pink); }
-  #hero h1 .lav{ color:var(--lav); }
-
-  .quote-block{ position:relative; max-width:20ch; margin-bottom:1.8rem; padding-left:0.2rem; }
-  .quote-block .quote-mark{
-    font-family:'Plus Jakarta Sans', sans-serif;
-    font-size:5rem; line-height:1; color:var(--pink);
-    position:absolute; left:-2.6rem; top:-1.8rem; opacity:0.9;
-  }
-  .quote-block blockquote{
-    font-family:'Plus Jakarta Sans', sans-serif;
-    font-weight:700;
-    font-size:clamp(2rem, 4.6vw, 3.4rem);
-    line-height:1.12;
-    letter-spacing:-0.02em;
-  }
-  .quote-block cite{
-    display:block; margin-top:1rem; font-style:normal;
-    font-size:0.95rem; font-weight:600; color:var(--lav);
-  }
-  @media (max-width:700px){ .quote-block .quote-mark{ left:-1.4rem; top:-1.4rem; font-size:3.5rem; } }
+  #hero h1 .pink{ color:var(--lav); }
   #hero p.tagline{
-    font-size:1.2rem; color:var(--muted); max-width:56ch; margin-bottom:2.6rem;
+    font-size:1.08rem; color:var(--muted); max-width:60ch; margin-bottom:2.2rem;
   }
   #hero .tagline b{ color:var(--ink); font-weight:600; }
 
   .tool-strip{
-    display:flex; gap:2.4rem; flex-wrap:wrap; align-items:center;
-    margin-top:3.5rem; padding-top:2.2rem; border-top:1px solid var(--line);
+    display:flex; gap:2.2rem; flex-wrap:wrap; align-items:center;
+    margin-top:2.6rem; padding-top:1.8rem; border-top:1px solid var(--line);
   }
   .tool-strip span{
     font-family:'Plus Jakarta Sans', sans-serif; font-weight:600;
-    font-size:0.95rem; color:var(--muted);
+    font-size:0.88rem; color:var(--muted);
   }
 
   /* ---------- Section head ---------- */
-  .section-head{ margin-bottom:2.8rem; }
+  .section-head{ margin-bottom:2.4rem; }
   .section-head .kicker{
     display:flex; align-items:center; gap:0.5rem;
-    font-size:0.85rem; font-weight:600; color:var(--pink); margin-bottom:0.6rem;
+    font-size:0.8rem; font-weight:600; color:var(--lav); margin-bottom:0.5rem;
+    text-transform:uppercase; letter-spacing:0.04em;
   }
-  .section-head h2{ font-size:clamp(1.8rem, 3.4vw, 2.6rem); }
+  .section-head h2{ font-size:clamp(1.5rem, 2.6vw, 2rem); }
 
-  /* ---------- Profil ---------- */
-  #profil{ background:var(--paper); border-radius:28px; margin-top:1rem; margin-bottom:1rem; }
-  #profil .grid-cols{ display:grid; grid-template-columns:1.3fr 1fr; gap:3rem; }
-  #profil p{ max-width:60ch; font-size:1.05rem; }
-  .facts{ display:flex; flex-direction:column; gap:1.2rem; }
-  .fact{ background:var(--lav-tint); border-radius:14px; padding:1rem 1.2rem; }
-  .fact .k{ display:block; font-size:0.72rem; color:var(--lav); font-weight:700; letter-spacing:0.04em; margin-bottom:0.25rem; }
-  .fact .v{ font-size:0.95rem; }
-  @media (max-width:860px){ #profil .grid-cols{ grid-template-columns:1fr; } }
+  /* ---------- Profile ---------- */
+  #profile{ background:var(--paper); border-radius:10px; margin-top:1rem; margin-bottom:1rem; border:1px solid var(--line); }
+  #profile .grid-cols{ display:grid; grid-template-columns:1.3fr 1fr; gap:3rem; }
+  #profile p{ max-width:62ch; font-size:1rem; color:var(--ink); }
+  .facts{ display:flex; flex-direction:column; gap:1rem; }
+  .fact{ background:var(--bg); border-radius:10px; padding:0.9rem 1.1rem; border:1px solid var(--line); }
+  .fact .k{ display:block; font-size:0.68rem; color:var(--lav); font-weight:700; letter-spacing:0.05em; margin-bottom:0.25rem; }
+  .fact .v{ font-size:0.92rem; }
+  @media (max-width:860px){ #profile .grid-cols{ grid-template-columns:1fr; } }
 
-  /* ---------- Projekte ---------- */
+  /* ---------- Projects ---------- */
   .project-card{
     background:var(--paper);
-    border-radius:24px;
-    padding:2rem;
-    margin-bottom:2rem;
+    border-radius:8px;
+    padding:1.8rem;
+    margin-bottom:1.6rem;
     border:1px solid var(--line);
   }
   .mockup{
-    border-radius:16px;
-    height:200px;
-    margin-bottom:1.6rem;
+    border-radius:10px;
+    height:180px;
+    margin-bottom:1.4rem;
     display:flex; align-items:center; justify-content:center;
     position:relative;
     overflow:hidden;
+    background:var(--bg);
+    border:1px dashed var(--line);
   }
-  .mockup .dots{ position:absolute; top:14px; left:16px; display:flex; gap:6px; }
-  .mockup .dots span{ width:9px; height:9px; border-radius:50%; background:rgba(255,255,255,0.55); }
+  .mockup img{ width:100%; height:100%; object-fit:cover; }
   .mockup .mockup-label{
-    font-family:'Plus Jakarta Sans', sans-serif; font-weight:700; color:rgba(255,255,255,0.92); font-size:1rem;
+    font-family:'Plus Jakarta Sans', sans-serif; font-weight:600; color:var(--muted); font-size:0.9rem;
   }
-  .mockup.pink-grad{ background:linear-gradient(135deg, #FF3D8A, #FF8FBE); }
-  .mockup.lav-grad{ background:linear-gradient(135deg, #7C5CE0, #B7A6F2); }
+  .mockup.accent{ border-style:solid; border-top:3px solid var(--lav); }
 
-  .project-card .card-top{ display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem; margin-bottom:0.8rem; }
-  .project-card h3{ font-size:1.5rem; }
+  .project-card .card-top{ display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.8rem; margin-bottom:0.7rem; }
+  .project-card h3{ font-size:1.25rem; }
   .project-card .status{
-    font-size:0.75rem; font-weight:600; color:var(--lav);
-    background:var(--lav-tint); padding:0.35rem 0.8rem; border-radius:999px; white-space:nowrap;
+    font-size:0.72rem; font-weight:600; color:var(--lav);
+    background:var(--lav-tint); padding:0.3rem 0.75rem; border-radius:6px; white-space:nowrap;
   }
-  .project-card .desc{ color:var(--muted); max-width:70ch; margin-bottom:1.2rem; }
+  .project-card .desc{ color:var(--muted); max-width:72ch; margin-bottom:1.1rem; font-size:0.96rem; }
   .tag-row{ display:flex; gap:0.5rem; flex-wrap:wrap; }
-  .tag{ font-size:0.78rem; font-weight:500; color:var(--ink); background:var(--bg); padding:0.3rem 0.75rem; border-radius:999px; }
+  .tag{ font-size:0.75rem; font-weight:500; color:var(--ink); background:var(--bg); padding:0.28rem 0.7rem; border-radius:6px; border:1px solid var(--line); }
   .placeholder-note{
-    font-size:0.82rem; color:var(--muted); font-style:italic;
-    margin-top:1.2rem; border-top:1px dashed var(--line); padding-top:0.9rem;
+    font-size:0.8rem; color:var(--muted); font-style:italic;
+    margin-top:1.1rem; border-top:1px dashed var(--line); padding-top:0.8rem;
   }
 
-  /* ---------- Publikationen ---------- */
-  .pub-item{ display:flex; gap:1.5rem; padding:1.3rem 0; border-bottom:1px solid var(--line); align-items:flex-start; }
+  /* ---------- Publications ---------- */
+  .pub-item{ display:flex; gap:1.2rem; padding:1.2rem 0; border-bottom:1px solid var(--line); align-items:flex-start; }
   .pub-item:last-child{ border-bottom:none; }
   .pub-item .pub-icon{
-    font-size:0.72rem; font-weight:700; color:var(--pink);
-    background:var(--pink-tint); padding:0.35rem 0.7rem; border-radius:999px; white-space:nowrap;
+    font-size:0.68rem; font-weight:700; color:var(--lav);
+    background:var(--lav-tint); padding:0.32rem 0.65rem; border-radius:6px; white-space:nowrap; margin-top:0.15rem;
   }
-  .pub-item h4{ font-family:'Plus Jakarta Sans'; font-weight:700; font-size:1.05rem; margin-bottom:0.3rem; }
-  .pub-item p{ color:var(--muted); font-size:0.92rem; }
+  .pub-item h4{ font-family:'Plus Jakarta Sans'; font-weight:700; font-size:1rem; margin-bottom:0.35rem; line-height:1.4; }
+  .pub-item .authors{ font-size:0.9rem; color:var(--ink); margin-bottom:0.2rem; }
+  .pub-item .venue{ color:var(--muted); font-size:0.88rem; }
+  .pub-item .status-line{ color:var(--lav); font-size:0.85rem; font-weight:600; margin-top:0.3rem; }
 
-  /* ---------- Kompetenzen ---------- */
-  .skills-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1.6rem; }
-  .skill-group{ background:var(--paper); border-radius:18px; padding:1.6rem; border:1px solid var(--line); }
-  .skill-group .k{ font-weight:700; color:var(--pink); font-size:0.9rem; margin-bottom:0.9rem; display:block; }
+  /* ---------- Skills ---------- */
+  .skills-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:1.4rem; }
+  .skill-group{ background:var(--paper); border-radius:8px; padding:1.4rem; border:1px solid var(--line); }
+  .skill-group .k{ font-weight:700; color:var(--lav); font-size:0.85rem; margin-bottom:0.8rem; display:block; }
   .skill-group ul{ list-style:none; }
-  .skill-group li{ padding:0.32rem 0; font-size:0.95rem; }
+  .skill-group li{ padding:0.3rem 0; font-size:0.92rem; }
 
-  /* ---------- Kontakt ---------- */
-  #kontakt{ text-align:center; padding-bottom:8rem; }
-  #kontakt h2{ font-size:clamp(2rem,4.4vw,3rem); max-width:18ch; margin:0 auto 1.8rem; }
+  /* ---------- Skill bars ---------- */
+  .skill-bars{ background:var(--paper); border-radius:8px; padding:1.6rem 1.8rem; border:1px solid var(--line); }
+  .skill-bar-row{ display:flex; align-items:center; justify-content:space-between; gap:1.2rem; padding:0.55rem 0; }
+  .skill-bar-row .label{ font-size:0.92rem; width:110px; flex-shrink:0; }
+  .skill-bar-track{ flex:1; height:6px; background:var(--bg); border-radius:6px; overflow:hidden; }
+  .skill-bar-fill{ height:100%; background:var(--lav); border-radius:6px; }
+
+  /* ---------- Contact ---------- */
+  #contact{ text-align:center; padding-bottom:7rem; }
+  #contact h2{ font-size:clamp(1.7rem,3.6vw,2.4rem); max-width:20ch; margin:0 auto 1.6rem; }
   .contact-links{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1rem; }
   .contact-links a{
-    font-weight:600; font-size:0.95rem; background:var(--ink); color:#fff;
-    padding:0.8rem 1.6rem; border-radius:999px; transition:transform .15s ease;
+    font-weight:600; font-size:0.92rem; background:var(--ink); color:#fff;
+    padding:0.75rem 1.5rem; border-radius:6px; transition:transform .15s ease;
   }
   .contact-links a:hover{ transform:translateY(-2px); }
   .contact-links a.secondary{ background:var(--paper); color:var(--ink); border:1px solid var(--line); }
 
-  ::selection{ background:var(--pink-tint); color:var(--pink); }
+  ::selection{ background:var(--lav-tint); color:var(--lav); }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">nina's<span class="dot">.</span>portfolio</div>
+  <div class="logo">Nina Floeter</div>
   <nav>
     <ul>
       <li><a href="#hero" class="active">Home</a></li>
-      <li><a href="#profil">Profil</a></li>
-      <li><a href="#projekte">Projekte</a></li>
-      <li><a href="#publikationen">Publikationen</a></li>
-      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="#profile">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 </header>
@@ -208,170 +207,260 @@
 <main>
 
   <section id="hero">
-    <h1>Menschen und Maschinen <span class="pink">verständlich</span> zusammendenken <span class="lav">✻</span></h1>
-    <p class="tagline">Mich interessiert, wie gute Interaktion entsteht — zwischen Menschen, Maschinen und den Räumen, die sie teilen. Aktuell <b>M.Sc. Studentin Human-Centered Computing</b> an der Hochschule Reutlingen.</p>
+    <div class="eyebrow">Currently completing my M.Sc.</div>
+    <h1>M.Sc. Student, Human-Centered Computing</h1>
+    <p class="tagline">My interest lies in how good interaction emerges, between people, machines, and the systems they share. I'm currently completing my M.Sc. in Human-Centered Computing at Hochschule Reutlingen, building on a B.Sc. in Medical Informatics from the University of Tübingen.</p>
     <div class="tool-strip">
-      <span>UI/UX</span><span>Figma</span><span>Unity</span><span>XR / VR</span><span>R / Phyton</span>
+      <span>UI/UX</span><span>Figma</span><span>Unity / C#</span><span>XR / VR</span><span>R / Python</span><span>Study Design</span>
     </div>
   </section>
 
-  <section id="profil">
+  <section id="profile">
     <div class="section-head">
-      <div class="kicker"><span class="spark">✻</span> Profil</div>
-      <h2>Wer ich bin</h2>
+      <div class="kicker">About</div>
+      <h2>Who I am</h2>
     </div>
     <div class="grid-cols">
-      <p>Mein Weg begann mit einem B.Sc. in Medizininformatik in Tübingen, einem Fach an der Schnittstelle von Technik und menschlichen Bedürfnissen. Im M.Sc. Human-Centered Computing in Reutlingen habe ich diesen Blick vertieft, weg von der Frage, was eine Technologie kann, hin zu der Frage, wie Menschen sie tatsächlich erleben. Ob in der VR-Simulation von WheelCity oder in der Analyse von Designprozessen bei Mercedes-Benz, mich interessiert immer dieselbe Perspektive: die der Nutzer:innen.</p>
+      <div>
+        <div class="avatar-lg" style="margin-bottom:1.4rem;">
+          <!-- Replace with <img src="assets/portrait.jpg" alt="Nina Floeter"> -->
+          <span>photo</span>
+        </div>
+        <p>My path began with a B.Sc. in Medical Informatics in Tübingen, a field at the intersection of technology and human needs. In my M.Sc. in Human-Centered Computing in Reutlingen, I deepened that perspective, moving from the question of what a technology can do to how people actually experience it. Whether in the VR simulation WheelCity, in my work on social robots, or in analyzing design processes at Mercedes-Benz, I keep returning to the same lens: the perspective of the people using the system.</p>
+      </div>
       <div class="facts">
-        <div class="fact"><span class="k">STUDIUM</span><span class="v">M.Sc. Human-Centered Computing, Hochschule Reutlingen</span></div>
-        <div class="fact"><span class="k">GRUNDSTUDIUM</span><span class="v">B.Sc. Medizininformatik, Universität Tübingen</span></div>
-        <div class="fact"><span class="k">PRAXIS</span><span class="v">UI/UX-Design @Mercedes-Benz Group AG — Tech4People</span></div>
-        <div class="fact"><span class="k">PRAXIS</span><span class="v">Daten- & Prozessmanagement @Georg Thieme Verlag KG</span></div>
+        <div class="fact"><span class="k">STUDIES</span><span class="v">M.Sc. Human-Centered Computing, Hochschule Reutlingen</span></div>
+        <div class="fact"><span class="k">UNDERGRADUATE</span><span class="v">B.Sc. Medical Informatics, University of Tübingen</span></div>
+        <div class="fact"><span class="k">EXPERIENCE</span><span class="v">UI/UX Design @ Mercedes-Benz Group AG — Tech4People</span></div>
+        <div class="fact"><span class="k">EXPERIENCE</span><span class="v">Data & Process Management @ Georg Thieme Verlag KG</span></div>
       </div>
     </div>
   </section>
 
-  <section id="projekte">
+  <section id="projects">
     <div class="section-head">
-      <div class="kicker"><span class="spark lav">✻</span> Projekte</div>
-      <h2>Ausgewählte Arbeiten</h2>
+      <div class="kicker">Projects</div>
+      <h2>Selected Work</h2>
     </div>
 
-    <!-- 01 — Masterthesis DesignOps (aktuellstes Projekt) -->
+    <!-- 01 — Master's Thesis DesignOps -->
     <div class="project-card">
       <div class="mockup">
-        <img src="designops-theme.svg" alt="Abstrakte Illustration aus geometrischen Formen als Sinnbild für Designsysteme">
+        <img src="designops-theme.svg" alt="Abstract illustration of geometric shapes symbolizing design systems">
       </div>
       <div class="card-top">
-        <h3>DesignOps-Prozessmodell</h3>
-        <span class="status">Masterarbeit · laufend</span>
+        <h3>DesignOps Process Model</h3>
+        <span class="status">Master's Thesis · Ongoing</span>
       </div>
-      <p class="desc">Kurzbeschreibung: Entwicklung eines DesignOps-Prozessmodells bei Mercedes-Benz — mit Fokus auf ein neues Designsystem, aufgebautem Prozesswissen aus der Ist-Analyse und der übertragbaren Methodik dahinter. Praktische Umsetzung im Time-Management-Team, BPMN-Modellierung des HR-Designer-Workflows.</p>
+      <p class="desc">Development of a DesignOps process model at Mercedes-Benz, following a Design Science Research approach embedded in a Human-Centered Design cycle. Grounded in a systematic literature review and a mixed-methods as-is analysis (participant observation, stakeholder survey, Figma artifact analysis, Jira ticket analysis), including BPMN 2.0 modeling of the HR-Designer-Developer workflow, a requirements catalog (GQM, MoSCoW), and a set of KPIs to evaluate the process. Practical implementation within the Time Management team.</p>
       <div class="tag-row">
-        <span class="tag">Designsystem</span>
-        <span class="tag">BPMN / Ist-Analyse</span>
+        <span class="tag">Design System</span>
+        <span class="tag">BPMN / As-Is Analysis</span>
+        <span class="tag">Requirements & KPIs</span>
         <span class="tag">Mercedes-Benz Tech4People</span>
       </div>
     </div>
 
-     <!-- 02 — WheelCity, inkl. eingereichter Publikation -->
+    <!-- 02a — WheelCity base VR application -->
     <div class="project-card">
-      <div class="mockup" style="background:#1A1226;">
+      <div class="mockup" style="background:#1A1226; border:none;">
         <video controls preload="metadata" style="width:100%; height:100%; object-fit:cover;" poster="assets/wheelcity-poster.jpg">
           <source src="assets/wheelcity-demo.mp4" type="video/mp4">
-          Dein Browser unterstützt das Video-Element nicht.
+          Your browser does not support the video element.
         </video>
       </div>
       <div class="card-top">
-        <h3>WheelCity — VR-Rollstuhlsimulation</h3>
-        <span class="status">Wissenschaftliche Vertiefung · 2026</span>
+        <h3>WheelCity — VR Wheelchair Simulation</h3>
+        <span class="status">Advanced Research Project</span>
       </div>
-      <p class="desc">[Kurzbeschreibung: VR-Simulation urbaner Barrieren in Unity/XR für Pico HMD. Studie mit Architekt:innen und Stadtplaner:innen als Proband:innen, um die Zielgruppe direkt für die Lebensrealität von Rollstuhlfahrer:innen zu sensibilisieren. Methodik: Between-Subjects-Design (N=13), Fragebogeninstrumente IPQ, IRI, PTDS, statistische Auswertung mit t-Tests und Cronbach's Alpha.]</p>
+      <p class="desc">VR simulation of urban accessibility barriers, built in Unity/XR for the Pico HMD, recreating everyday obstacles wheelchair users face in urban environments. This application forms the technical foundation for the follow-up study described below.</p>
       <div class="tag-row">
-        <span class="tag">Unity / XR</span>
-        <span class="tag">Studie mit Architekt:innen</span>
-        <span class="tag">IPQ · IRI · PTDS</span>
+        <span class="tag">Unity / C# / XR</span>
+        <span class="tag">Accessibility</span>
       </div>
-      <p class="placeholder-note">Publikation geplant: Konferenzpaper bei Informatics Inside eingereicht (Mai 2026), inkl. Poster und Vortrag — Details siehe Sektion „Publikationen" unten. Platzhalter für Screenshots/Video der Stationen S1/S2/F1–F4 und Studienaufbau-Grafik hier einfügen.</p>
+      <p class="placeholder-note">Placeholder: add screenshots/video of the environment and stations here.</p>
     </div>
 
-    <!-- 03 — WheelCity, inkl. eingereichter Publikation -->
+    <!-- 02b — Sensitization study built on WheelCity -->
     <div class="project-card">
-      <div class="mockup" style="background:#1A1226;">
-        <video controls preload="metadata" style="width:100%; height:100%; object-fit:cover;" poster="assets/wheelcity-poster.jpg">
-          <source src="assets/wheelcity-demo.mp4" type="video/mp4">
-          Dein Browser unterstützt das Video-Element nicht.
-        </video>
+      <div class="mockup">
+        <span class="mockup-label">Sensitization Study</span>
       </div>
       <div class="card-top">
-        <h3>WheelCity — VR-Rollstuhlsimulation</h3>
-        <span class="status">Masterprojekt · 2025/2026</span>
+        <h3>Sensitizing Architects and Urban Planners through Active VR Task Completion</h3>
+        <span class="status">Study, built on WheelCity</span>
       </div>
-      <p class="desc">[Kurzbeschreibung: VR-Simulation urbaner Barrieren in Unity/XR für Pico HMD. Studie mit Architekt:innen und Stadtplaner:innen als Proband:innen, um die Zielgruppe direkt für die Lebensrealität von Rollstuhlfahrer:innen zu sensibilisieren. Methodik: Between-Subjects-Design (N=13), Fragebogeninstrumente IPQ, IRI, PTDS, statistische Auswertung mit t-Tests und Cronbach's Alpha.]</p>
+      <p class="desc">A study extending WheelCity with a task-based VR parcours, conducted with architects and urban planners as participants to directly sensitize this target group to the lived reality of wheelchair users. Methodology: between-subjects design (N=13), questionnaire instruments IPQ, IRI, PTDS, statistical analysis using paired t-tests and Cronbach's alpha.</p>
       <div class="tag-row">
-        <span class="tag">Unity / XR</span>
-        <span class="tag">Studie mit Architekt:innen</span>
+        <span class="tag">Study Design & Execution</span>
         <span class="tag">IPQ · IRI · PTDS</span>
       </div>
-      <p class="placeholder-note">Publikation geplant: Konferenzpaper bei Informatics Inside eingereicht (Mai 2026), inkl. Poster und Vortrag — Details siehe Sektion „Publikationen" unten. Platzhalter für Screenshots/Video der Stationen S1/S2/F1–F4 und Studienaufbau-Grafik hier einfügen.</p>
+      <p class="placeholder-note">Submitted as a paper, poster, and talk to Informatics Inside, an internal conference at Hochschule Reutlingen (May 2026) — not yet published, see "Publications" below. Placeholder: add a study design graphic here.</p>
     </div>
-    
+
+    <!-- 03 — AroMinder -->
     <div class="project-card">
-      <div class="mockup" style="background:var(--bg); border:1px dashed var(--line);">
-        <span class="mockup-label" style="color:var(--muted);">+ Weiteres Projekt</span>
+      <div class="mockup">
+        <span class="mockup-label">AroMinder</span>
       </div>
       <div class="card-top">
-        <h3>[Weiteres Projekt]</h3>
-        <span class="status">Platzhalter</span>
+        <h3>AroMinder — Scent Diffuser Concept</h3>
+        <span class="status">Course Project · Interactive Systems</span>
       </div>
-      <p class="desc">[Raum für ein drittes Projekt — z.B. aus dem Bachelor oder früherer Praxiserfahrung.]</p>
-      <div class="tag-row"><span class="tag">Tag</span><span class="tag">Tag</span></div>
+      <p class="desc">Concept for a scent diffuser to support people in early-stage dementia, developed in the Interactive Systems module together with a fellow student. Own role: research, concept, prototype, and project website.</p>
+      <div class="tag-row">
+        <span class="tag">Interaction Design</span>
+        <span class="tag">Prototyping</span>
+        <span class="tag">Assistive Technology</span>
+      </div>
+      <p class="placeholder-note">Placeholder: add images of the prototype and project website.</p>
+    </div>
+
+    <!-- 04 — Social Robots -->
+    <div class="project-card">
+      <div class="mockup">
+        <span class="mockup-label">Social Robots</span>
+      </div>
+      <div class="card-top">
+        <h3>Social Robots in Customer Service</h3>
+        <span class="status">Individual Term Paper · Cognitive Systems</span>
+      </div>
+      <p class="desc">Systematic literature review (Web of Science, IEEE Xplore, ACM Digital Library) on the use of social robots in customer service as a response to labor shortages. Two research questions were examined: which factors influence customer experience when interacting with social robots, and what challenges exist in implementing empathy and social competence. Concepts covered include emotion recognition, anthropomorphism, the uncanny valley, the CASA paradigm, and cultural differences in technology acceptance.</p>
+      <div class="tag-row">
+        <span class="tag">Human-Robot Interaction</span>
+        <span class="tag">Emotion Recognition</span>
+        <span class="tag">Cognitive Systems</span>
+      </div>
+    </div>
+
+    <!-- 05 — Working Student Mercedes-Benz: HR Tool -->
+    <div class="project-card">
+      <div class="mockup">
+        <span class="mockup-label">HR Tool Redesign</span>
+      </div>
+      <div class="card-top">
+        <h3>From Tool Component to Standalone Product</h3>
+        <span class="status">Working Student & Practical Semester · Mercedes-Benz</span>
+      </div>
+      <p class="desc">UI/UX modernization of an HR time-management tool: a tool that had previously been part of an older, larger system was independently conceived and designed by me as a new, standalone tool, with sole design responsibility from concept to final implementation.</p>
+      <div class="tag-row">
+        <span class="tag">UI/UX Design</span>
+        <span class="tag">Product Ownership</span>
+        <span class="tag">Figma</span>
+      </div>
+      <p class="placeholder-note">Placeholder: add before/after screenshots or Figma excerpts.</p>
+    </div>
+
+    <!-- 06 — Thieme Working Student -->
+    <div class="project-card">
+      <div class="mockup">
+        <span class="mockup-label">Process Management</span>
+      </div>
+      <div class="card-top">
+        <h3>Data & Process Management in Publishing</h3>
+        <span class="status">Working Student · Georg Thieme Verlag KG</span>
+      </div>
+      <p class="desc">First working-student position in data and process management, focused on processes around the publishing workflow. Laid the foundation for a later understanding of structured processes that carried into the DesignOps work at Mercedes-Benz.</p>
+      <div class="tag-row">
+        <span class="tag">Process Management</span>
+        <span class="tag">Data Management</span>
+      </div>
+    </div>
+
+    <!-- 07 — Bachelor's Thesis -->
+    <div class="project-card">
+      <div class="mockup">
+        <span class="mockup-label">Bachelor's Thesis</span>
+      </div>
+      <div class="card-top">
+        <h3>Graphical User Interfaces for R in Medical Applications</h3>
+        <span class="status">Bachelor's Thesis · Medical Informatics</span>
+      </div>
+      <p class="desc">Comparative analysis of four R-based statistical tools (RStudio, R Commander, Jamovi, Deducer/JGR) for medical applications, based on custom criteria for functionality, usability, visualization, and system reliability. Testing included verifying individual functions across all four tools. Recommendation: RStudio for biometrics experts, Jamovi for physicians and medical students as occasional users.</p>
+      <div class="tag-row">
+        <span class="tag">R</span>
+        <span class="tag">Usability Comparison</span>
+        <span class="tag">Medical Informatics</span>
+      </div>
+    </div>
+
+    <!-- 08 — Data Privacy Tool -->
+    <div class="project-card">
+      <div class="mockup">
+        <span class="mockup-label">Data Privacy Tool</span>
+      </div>
+      <div class="card-top">
+        <h3>Anonymization Tool for Medical Datasets</h3>
+        <span class="status">Student Project · Bachelor's</span>
+      </div>
+      <p class="desc">Team project (Scrum) to develop a tool that calculates, based on datasets, which fields need to be anonymized, using a k-anonymity-based privacy factor to assess re-identification risk.</p>
+      <div class="tag-row">
+        <span class="tag">Data Privacy</span>
+        <span class="tag">k-Anonymity</span>
+        <span class="tag">Scrum</span>
+      </div>
+      <p class="placeholder-note">Placeholder: add tech stack and own role within the team, if desired.</p>
     </div>
   </section>
 
-  <section id="publikationen">
+  <section id="publications">
     <div class="section-head">
-      <div class="kicker"><span class="spark">✻</span> Publikationen</div>
-      <h2>Publikationen &amp; Vorträge</h2>
+      <div class="kicker">Publications</div>
+      <h2>Publications</h2>
     </div>
 
     <div class="pub-item">
       <span class="pub-icon">PAPER</span>
       <div>
-        <h4>Sensibilisierung für die Lebensrealität von Rollstuhlfahrer:innen durch aktive Aufgabenbewältigung in VR</h4>
-        <p>Eingereicht bei Informatics Inside, Mai 2026 · [Status/Link ergänzen]</p>
-      </div>
-    </div>
-    <div class="pub-item">
-      <span class="pub-icon">POSTER</span>
-      <div>
-        <h4>Konferenzposter, Informatics Inside</h4>
-        <p>A2-Format, Hochschule-Reutlingen-Template · [Bild/PDF ergänzen]</p>
-      </div>
-    </div>
-    <div class="pub-item">
-      <span class="pub-icon">TALK</span>
-      <div>
-        <h4>Konferenzvortrag, Informatics Inside</h4>
-        <p>[Kurzbeschreibung / Slides-Link ergänzen]</p>
+        <h4>Sensitization to the Lived Reality of Wheelchair Users through Active Task Completion in VR</h4>
+        <p class="authors">Nina Floeter</p>
+        <p class="venue">Submitted to Informatics Inside (internal university conference), May 2026</p>
+        <p class="status-line">Status: in preparation, not yet published</p>
       </div>
     </div>
   </section>
 
-  <section id="kompetenzen">
+  <section id="skills">
     <div class="section-head">
-      <div class="kicker"><span class="spark lav">✻</span> Kompetenzen</div>
-      <h2>Methoden &amp; Skills</h2>
+      <div class="kicker">Skills</div>
+      <h2>Methods &amp; Skills</h2>
     </div>
+
     <div class="skills-grid">
       <div class="skill-group">
-        <span class="k">Entwicklung</span>
-        <ul><li>Unity / XR Interaction Toolkit</li><li>C#</li><li>[weitere ergänzen]</li></ul>
+        <span class="k">Programming &amp; Development</span>
+        <ul><li>Java</li><li>Python</li><li>R</li><li>C#</li><li>HTML, CSS</li></ul>
       </div>
       <div class="skill-group">
-        <span class="k">Forschungsmethodik</span>
-        <ul><li>Studiendesign (Between-Subjects)</li><li>Statistik: t-Tests, Cronbach's Alpha</li><li>IPQ, IRI, PTDS</li></ul>
+        <span class="k">Tools</span>
+        <ul><li>Git</li><li>Figma</li><li>Unity</li><li>Jira</li><li>WordPress</li><li>Canva</li><li>MS Office</li></ul>
       </div>
       <div class="skill-group">
-        <span class="k">Prozess &amp; Modellierung</span>
-        <ul><li>BPMN</li><li>DesignOps / Ist-Analyse</li><li>[weitere ergänzen]</li></ul>
+        <span class="k">Research Methodology</span>
+        <ul><li>Study Design (Between-Subjects)</li><li>Systematic Literature Review (PRISMA)</li><li>Mixed-Methods (Surveys, Participant Observation, Artifact Analysis)</li><li>Statistics (incl. Biometry coursework)</li><li>IPQ, IRI, PTDS</li></ul>
       </div>
       <div class="skill-group">
-        <span class="k">Schreiben &amp; Publizieren</span>
-        <ul><li>LaTeX (ACM-Format)</li><li>Wissenschaftliches Schreiben</li><li>Konferenzposter &amp; -vorträge</li></ul>
+        <span class="k">Process &amp; Modeling</span>
+        <ul><li>BPMN 2.0</li><li>DesignOps / As-Is Analysis</li><li>Design Science Research &amp; Human-Centered Design</li><li>GQM &amp; MoSCoW (Requirements)</li><li>Scrum / Kanban</li></ul>
+      </div>
+      <div class="skill-group">
+        <span class="k">Design &amp; Research</span>
+        <ul><li>UI/UX Design</li><li>Prototyping</li></ul>
+      </div>
+      <div class="skill-group">
+        <span class="k">Academic Writing</span>
+        <ul><li>LaTeX (ACM format)</li><li>Scientific Writing</li><li>Conference Poster &amp; Talk Preparation</li></ul>
       </div>
     </div>
   </section>
 
-  <section id="kontakt">
+  <section id="contact">
     <div class="section-head" style="justify-content:center;">
-      <div class="kicker" style="justify-content:center;"><span class="spark">✻</span> Kontakt</div>
+      <div class="kicker" style="justify-content:center;">Contact</div>
     </div>
-    <h2>[Kurzer Call-to-Action-Satz, z.B. „Ich freue mich über den Austausch zu Human-Machine Collaboration."]</h2>
     <div class="contact-links">
-      <a href="mailto:">E-Mail schreiben</a>
+      <a href="mailto:">Send Email</a>
       <a href="#" class="secondary">LinkedIn</a>
-      <a href="#" class="secondary">CV (PDF)</a>
     </div>
   </section>
 
